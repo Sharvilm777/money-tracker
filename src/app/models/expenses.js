@@ -10,5 +10,6 @@ const expenseSchema = new Schema({
   balance: { type: Number },
 });
 
-const Expenses = mongoose.model("Expense", expenseSchema);
+const Expenses =
+  mongoose.models.Expense || mongoose.model("Expense", expenseSchema);
 module.exports = Expenses;

@@ -5,16 +5,17 @@ import connect_DB from "@/app/utils/DBConnect";
 
 export async function POST(req) {
   await connect_DB();
-  const body = req.json();
-  const Bal = await Balance.find({ userId: body.userId });
+  const body = await req.json();
+  const Bal = await Balance.findOne({ userId: body.userId });
   const avaliableBal = Bal.balance;
+  console.log(avaliableBal);
   const expenses = await Expenses.create({
     userId: body.userId,
     budgetId: body.budgetId,
     category: body.category,
     expenseAmount: body.expenseAmount,
     Description: body.Description,
-    Balance: avaliableBal,
+    balance: avaliableBal,
   });
   const newBal = await Balance.findOneAndUpdate(
     { userId: body.userId },

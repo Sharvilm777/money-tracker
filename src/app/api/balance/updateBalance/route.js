@@ -4,20 +4,23 @@ import connect_DB from "@/app/utils/DBConnect";
 import { NextResponse } from "next/server";
 
 export async function PUT(req) {
-  await connect_DB;
-  const body = req.json();
+  await connect_DB();
+
+  const body = await req.json();
   const BalObj = await Balance.findOne({ userId: body.userId });
-  if (BalObj.type === "debit") {
-    const updateBal = await Balance.findOneAndUpdate(
+  console.log(BalObj);
+  var updateBal;
+  if (body.type === "debit") {
+    updateBal = await Balance.findOneAndUpdate(
       {
-        userId: newUser._id,
+        userId: body.userId,
       },
       { balance: BalObj.balance - body.amount }
     );
   } else {
-    const updateBal = await Balance.findOneAndUpdate(
+    updateBal = await Balance.findOneAndUpdate(
       {
-        userId: newUser._id,
+        userId: body.userId,
       },
       { balance: BalObj.balance + body.amount }
     );

@@ -1,11 +1,13 @@
 import Balance from "@/app/models/balance";
 import User from "@/app/models/user";
+import connect_DB from "@/app/utils/DBConnect";
 
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
   await connect_DB();
-  const body = req.json();
+  const body = await req.json();
+  console.log(body);
   const user = await User.findOne({ email: body.email });
   if (user) {
     return NextResponse.json(

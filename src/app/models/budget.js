@@ -6,7 +6,7 @@ const budgetSchema = new Schema(
   {
     userId: { type: mongoose.Types.ObjectId, ref: "User" },
     year: { type: Number },
-    month: { type: Number },
+    month: { type: String },
     budgetAmount: { type: Number, require: true },
     categories: [categoriesSchema],
   },
