@@ -8,7 +8,7 @@ const expenseSchema = new Schema({
   expenseAmount: { type: Number },
   Description: { type: String },
   balance: { type: Number },
-});
+}, { timestamps: true });
 
 const Expenses =
   mongoose.models.Expense || mongoose.model("Expense", expenseSchema);
