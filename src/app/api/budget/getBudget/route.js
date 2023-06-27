@@ -11,7 +11,7 @@ export async function GET(req) {
 
         const budgets = await Budget.find({ userId: userId })
 
-        return NextResponse.json({ budgets })
+        return NextResponse.json({ budgets }, { status: 200 })
     } catch (error) {
         return NextResponse.json({ error })
     }

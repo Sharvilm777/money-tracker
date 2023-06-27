@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 export async function PUT(req) {
   try {
 
-
     await connect_DB();
     const body = await req.json();
     const Bal = await Balance.findOne({ userId: body.userId });
@@ -20,7 +19,7 @@ export async function PUT(req) {
         message: "Balance Added successfully",
         updatedBal,
       },
-      { status: 200 }
+      { status: 201 }
     );
   } catch (error) {
     return NextResponse.json(error)

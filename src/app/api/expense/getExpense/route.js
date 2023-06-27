@@ -12,6 +12,8 @@ export async function GET(req) {
     const expenses = await Expenses.find({ userId });
     return NextResponse.json({
       expenses,
+    }, {
+      status: 200
     });
   } catch (error) {
     return NextResponse.json({ error })

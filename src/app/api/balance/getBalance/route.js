@@ -12,6 +12,8 @@ export async function GET(req) {
     } else {
       return NextResponse.json({
         message: "Balance for this user Not available",
+      }, {
+        status: 200
       });
     }
   } catch (error) {

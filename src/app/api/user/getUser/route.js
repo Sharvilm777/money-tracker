@@ -11,7 +11,7 @@ export async function GET(request) {
     await connect_DB();
     const user = await User.findById({ _id: id });
 
-    return NextResponse.json({ user })
+    return NextResponse.json({ user }, { status: 200 })
   } catch (error) {
     return NextResponse.json({ error })
   }

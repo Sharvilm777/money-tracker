@@ -46,7 +46,7 @@ export async function POST(req) {
         msg: "Expenses Added and Balance Update Successfully",
       },
       {
-        status: 200,
+        status: 201,
       }
     );
   } catch (error) {

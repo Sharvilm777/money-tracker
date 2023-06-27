@@ -25,6 +25,6 @@ export async function POST(req) {
       }
     );
   } catch (error) {
-    return NextResponse.json({ error })
+    return NextResponse.json({ msg: error })
   }
 }
