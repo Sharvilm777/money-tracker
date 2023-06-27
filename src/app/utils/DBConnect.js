@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const uri = process.env.MONGODB_URI;
+const uri = `mongodb+srv://Sharvil:sharvilm143@cluster0.6e3jweq.mongodb.net/money-tracker?retryWrites=true&w=majority`;
 
 const connect_DB = async () => {
   try {
